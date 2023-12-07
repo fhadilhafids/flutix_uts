@@ -21,6 +21,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     super.initState();
     nameController = TextEditingController(text: widget.user.name);
     profilePath = widget.user.profilePicture;
+    profileImageFile = null;
   }
 
   @override
@@ -65,13 +66,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
-                                        image: (profileImageFile != null)
-                                            ? FileImage(profileImageFile!)
-                                            : (profilePath != "")
-                                                ? NetworkImage(profilePath)
-                                                : const AssetImage(
-                                                        "assets/user_pic.png")
-                                                    as ImageProvider,
+                                        image: (profilePath != "")
+                                            ? NetworkImage(profilePath)
+                                            : AssetImage("assets/user_pic.png")
+                                                as ImageProvider,
                                         fit: BoxFit.cover))),
                             Align(
                               alignment: Alignment.bottomCenter,
