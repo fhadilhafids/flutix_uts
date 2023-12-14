@@ -51,16 +51,19 @@ class MovieDetailPage extends StatelessWidget {
                                           fit: BoxFit.cover)),
                                 ),
                                 Container(
-                                  height: 271,
+                                  margin: EdgeInsets.only(top: 230),
+                                  height: 50,
                                   width: double.infinity,
                                   decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          begin: const Alignment(0, 1),
-                                          end: const Alignment(0, 0.06),
-                                          colors: [
-                                        Colors.white,
-                                        Colors.white.withOpacity(0)
-                                      ])),
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Colors.white
+                                        : const Color.fromARGB(255, 13, 31, 88),
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(40),
+                                      topRight: Radius.circular(40),
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
@@ -79,7 +82,7 @@ class MovieDetailPage extends StatelessWidget {
                                       .add(const GoToMainPage());
                                 },
                                 child: const Icon(
-                                  Icons.arrow_back,
+                                  Icons.arrow_back_ios_new_outlined,
                                   color: Colors.white,
                                 ),
                               ),
@@ -122,6 +125,27 @@ class MovieDetailPage extends StatelessWidget {
                         const SizedBox(
                           height: 24,
                         ),
+                        // note: STORYLINE
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(
+                              defaultMargin, 24, defaultMargin, 8),
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Storyline",
+                              style: blackTextFont,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(
+                              defaultMargin, 0, defaultMargin, 30),
+                          child: Text(
+                            movie.overview,
+                            style: greyTextFont.copyWith(
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
                         // note: CREDITS
                         Align(
                           alignment: Alignment.topLeft,
@@ -162,26 +186,8 @@ class MovieDetailPage extends StatelessWidget {
                                     ));
                               }
                             }),
-                        // note: STORYLINE
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(
-                              defaultMargin, 24, defaultMargin, 8),
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              "Storyline",
-                              style: blackTextFont,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(
-                              defaultMargin, 0, defaultMargin, 30),
-                          child: Text(
-                            movie.overview,
-                            style: greyTextFont.copyWith(
-                                fontWeight: FontWeight.w400),
-                          ),
+                        SizedBox(
+                          height: 24,
                         ),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
