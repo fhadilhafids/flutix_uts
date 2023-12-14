@@ -15,6 +15,8 @@ TextStyle purpleTextFont = GoogleFonts.raleway()
     .copyWith(color: mainColor, fontWeight: FontWeight.w500);
 TextStyle greyTextFont = GoogleFonts.raleway()
     .copyWith(color: accentColor3, fontWeight: FontWeight.w500);
+TextStyle blueTextFont = GoogleFonts.raleway()
+    .copyWith(color: Colors.blue, fontWeight: FontWeight.w500);
 
 TextStyle whiteNumberFont = GoogleFonts.openSans()
     .copyWith(color: Colors.white, fontWeight: FontWeight.w500);
